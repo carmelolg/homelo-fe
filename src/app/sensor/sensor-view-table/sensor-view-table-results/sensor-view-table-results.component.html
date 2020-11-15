@@ -18,7 +18,7 @@
 
       <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let row">{{row.date | date: 'short'}}</td>
+        <td mat-cell *matCellDef="let row">{{row.date['$date'] | date: 'short'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="humidity">
