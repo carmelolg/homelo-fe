@@ -1,0 +1,45 @@
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Homelo</mat-card-title>
+            <mat-card-subtitle>Sensors and healty home management</mat-card-subtitle>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Sensor resume</mat-card-title>
+            <mat-card-subtitle>Current values of active sensor on {{homeAddress}}</mat-card-subtitle>
+          </div>
+        </div>
+
+        <mat-grid-list cols="2" class="all-width" rowHeight="fit">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <circle-progress [percent]="percentage" [radius]="50" [outerStrokeWidth]="10"
+              [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
+              [animationDuration]="300" [subtitle]="'Humidity'" [outerStrokeLinecap]="'square'">
+            </circle-progress>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <circle-progress [percent]="temperature" [radius]="50" [outerStrokeWidth]="10" [innerStrokeWidth]="2"
+              [outerStrokeColor]="'#78C000'" [animation]="true" [animationDuration]="300" [units]="' degrees'"
+              [subtitle]="'Temperature'" [outerStrokeLinecap]="'square'">
+            </circle-progress>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
