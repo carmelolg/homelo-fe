@@ -1,11 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { ChartType } from 'chart.js';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { BaseChartDirective, Color, Label } from 'ng2-charts';
+import { ChartValue } from '../../../shared/model/ChartValue';
+import { SensorData } from '../../../shared/model/SensorData';
 import { SensorDataDetail } from './../../../shared/model/SensorDataDetail';
 import { Constants } from './../../sensor.constants';
-import { Component, OnInit } from '@angular/core';
-import { Color, Label } from 'ng2-charts';
-import { SensorData } from '../../../shared/model/SensorData';
-import { ChartValue } from '../../../shared/model/ChartValue';
+import { HumidityService } from './humidity.service';
 
 @Component({
   selector: 'app-humidity',
@@ -15,32 +15,43 @@ import { ChartValue } from '../../../shared/model/ChartValue';
 export class HumidityComponent implements OnInit {
 
   public chartColors: Color[] = Constants.getChartColors();
-  public chartValues: Array<ChartValue> = [];
-  public chartLabels: Label[] = [];
-  public chartType: ChartType = 'line';
+  public humiditySensorDataList: SensorData[] = [];
+  @ViewChildren(BaseChartDirective) charts: QueryList<BaseChartDirective>;
 
-  public humiditySensorData: SensorData;
-
-  constructor(private datePipe: DatePipe) { }
+  constructor(private humidityService: HumidityService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.mockData();
+    this.init();
   }
 
-  mockData() {
-    let humidityDetails: Array<SensorDataDetail> = new Array();
-    let humidityValue: SensorDataDetail = new SensorDataDetail(80, new Date('1968-11-16T06:00:00'));
-    let humidityValue2: SensorDataDetail = new SensorDataDetail(75, new Date('1988-11-16T07:00:00'));
-    let humidityValue3: SensorDataDetail = new SensorDataDetail(98, new Date('2008-11-16T08:00:00'));
-    humidityDetails.push(humidityValue);
-    humidityDetails.push(humidityValue2);
-    humidityDetails.push(humidityValue3);
+  init() {
 
-    this.humiditySensorData = new SensorData('Humidity', 'Bedroom', new Date(), humidityDetails);
+    let subs = this.humidityService.getHumidityData().subscribe(data => {
 
-    this.chartValues.push(new ChartValue(humidityDetails.map(el => el.value), this.humiditySensorData.name));
-    this.chartLabels = humidityDetails.map(el => this.datePipe.transform(el.date, 'hh:mm'));
+      // For each room
+      Object.keys(data).forEach(key => {
 
+        // Current data
+        let values = data[key] as SensorDataDetail[];
+
+        // Prepare chart values
+        let _chartValues: Array<ChartValue> = [];
+        _chartValues.push(new ChartValue(values.map(el => el.value), key));
+
+        // Prepare lables on x-axis
+        let _chartLabels: Label[] = [];
+        _chartLabels = values.map(el => this.datePipe.transform(el.date['$date'], 'hh:mm'));
+
+        // Create final object
+        this.humiditySensorDataList.push(new SensorData(key, data[key] as SensorDataDetail[], _chartValues, _chartLabels));
+
+        this.charts.forEach((child) => {
+          child.chart.update();
+        });
+      });
+
+      subs.unsubscribe();
+    });
   }
 
 }

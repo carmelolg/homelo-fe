@@ -15,8 +15,6 @@ export class DashboardComponent implements OnInit {
   homeInfo: HomeInfo = new HomeInfo();
 
   roomParams: RoomParams = new RoomParams();
-  percentage = 80;
-  temperature = 22;
 
   constructor(private dashboardService: DashboardService){}
 
@@ -29,8 +27,6 @@ export class DashboardComponent implements OnInit {
 
     let roomSub = this.dashboardService.getCurrentParams().subscribe(params => {
       this.roomParams = params as RoomParams;
-      console.log(this.roomParams);
-
       roomSub.unsubscribe();
     });
   }

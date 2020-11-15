@@ -5,9 +5,15 @@ import { SensorDataDetail } from './SensorDataDetail';
 export class SensorData {
 
   constructor(
-    public name: String,
     public room: String,
-    public lastUpdate: Date,
-    public currentData: Array<SensorDataDetail>
-  ){}
+    public currentData: Array<SensorDataDetail>,
+    public chartValues?: ChartValue[],
+    public chartLabels?: Label[],
+    public chartType?: ChartType
+  ) {
+    this.chartValues = chartValues ? chartValues : [];
+    this.chartLabels = chartLabels ? chartLabels : [];
+    this.chartType = 'line';
+
+  }
 }

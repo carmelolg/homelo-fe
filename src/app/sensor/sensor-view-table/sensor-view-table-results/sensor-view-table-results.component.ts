@@ -46,7 +46,6 @@ export class SensorViewTableResultsComponent implements OnInit, OnDestroy {
 
     let _pageSub = this.paginator.page.subscribe(pageInfo => {
       this.filters.offset = pageInfo.pageIndex;
-      console.log(this.filters);
       this.tableObservable.search(this.filters);
       _pageSub.unsubscribe();
     });
