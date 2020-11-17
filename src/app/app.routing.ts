@@ -1,9 +1,10 @@
-import { SensorModule } from './sensor/sensor.module';
 import { Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard.service';
 
 export const AppRoutes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -19,5 +20,9 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./sensor/sensor.module').then(m => m.SensorModule)
       }
     ]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   }
 ];

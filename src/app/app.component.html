@@ -2,60 +2,62 @@
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
 <div class="main-container">
+  <!-- ============================================================== -->
+  <!-- Topbar - style you can find in header.scss -->
+  <!-- ============================================================== -->
+  <mat-toolbar color="primary" class="topbar telative">
+    <button *ngIf="isAuth" mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span fxFlex>
+
+      <div class="header">
+        <div class="header__link">
+          <!-- <a class="header__logo" (click)="goToHome()"></a> -->
+        </div>
+        <a class="user" *ngIf="isAuth" (click)="logout()"><mat-icon>exit_to_app</mat-icon></a>
+      </div>
+    </span>
     <!-- ============================================================== -->
-    <!-- Topbar - style you can find in header.scss -->
+    <!-- app header component - style you can find in header.scss / header.component.ts-->
     <!-- ============================================================== -->
-    <mat-toolbar color="primary" class="topbar telative">
-        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span fxFlex>
-
-            <div class="header">
-                <a class="header__link">
-                    <!--<div class="header__logo" (click)="goToHome()"></div>-->
-                </a>
-            </div>
-        </span>
-        <!-- ============================================================== -->
-        <!-- app header component - style you can find in header.scss / header.component.ts-->
-        <!-- ============================================================== -->
-        <app-header></app-header>
-    </mat-toolbar>
+    <app-header></app-header>
+  </mat-toolbar>
+  <!-- ============================================================== -->
+  <!-- End Topbar - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
     <!-- ============================================================== -->
-    <!-- End Topbar - style you can find in pages.scss -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
     <!-- ============================================================== -->
-    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-        <!-- ============================================================== -->
-        <!-- Sidebar - style you can find in sidebar.scss -->
-        <!-- ============================================================== -->
-        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
-            fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
+    <mat-sidenav *ngIf="isAuth" #snav id="snav" class="dark-sidebar pl-xs"
+      [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches"
+      [disableClose]="mobileQuery.matches">
 
-            <app-sidebar (toggleNavbar)="toggleNavbar($event)"></app-sidebar>
+      <app-sidebar (toggleNavbar)="toggleNavbar($event)"></app-sidebar>
 
 
-        </mat-sidenav>
-        <!-- ============================================================== -->
-        <!-- Sidebar - style you can find in sidebar.scss -->
-        <!-- ============================================================== -->
+    </mat-sidenav>
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
 
-        <!-- ============================================================== -->
-        <!-- Page container - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <mat-sidenav-content class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-content class="page-wrapper">
 
-            <div class="page-content">
+      <div class="page-content">
 
-                <router-outlet>
-                    <app-spinner></app-spinner>
-                </router-outlet>
+        <router-outlet>
+          <app-spinner></app-spinner>
+        </router-outlet>
 
-            </div>
+      </div>
 
-        </mat-sidenav-content>
-        <!-- ============================================================== -->
-        <!-- Page container - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-    </mat-sidenav-container>
+    </mat-sidenav-content>
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+  </mat-sidenav-container>
 </div>

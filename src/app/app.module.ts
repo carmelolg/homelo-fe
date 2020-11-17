@@ -1,9 +1,11 @@
+import { RequestInterceptor } from './request.interceptor';
+import { AuthGuard } from './auth.guard.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
@@ -18,22 +20,27 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './login/login.component';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
+    TransferHttpCacheModule,
     RouterModule.forRoot(AppRoutes),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
@@ -41,7 +48,13 @@ import { environment } from '../environments/environment';
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
