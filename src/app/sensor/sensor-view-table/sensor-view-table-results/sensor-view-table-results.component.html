@@ -1,6 +1,6 @@
 
 <div [hidden]="!searchIsActive || results.length">
-  Non ci sono risultati
+  Whoops! No data found
 </div>
 <div [hidden]="!results.length" class="custom-container mat-elevation-z8">
 
@@ -12,23 +12,23 @@
       matSortDirection="desc">
 
       <ng-container matColumnDef="room">
-        <th mat-header-cell *matHeaderCellDef>Room</th>
+        <th mat-header-cell *matHeaderCellDef><mat-icon>room</mat-icon></th>
         <td mat-cell *matCellDef="let row">{{row.room}}</td>
       </ng-container>
 
       <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let row">{{row.date['$date'] | date: 'short'}}</td>
+        <th mat-header-cell *matHeaderCellDef><mat-icon>calendar_today</mat-icon></th>
+      <td mat-cell *matCellDef="let row">{{row.date['$date'] | date: 'MM-dd-yyyy HH:mm'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="humidity">
-        <th mat-header-cell *matHeaderCellDef>Humidity</th>
-        <td mat-cell *matCellDef="let row">{{row.humidity}}</td>
+        <th mat-header-cell *matHeaderCellDef><mat-icon>water_damage</mat-icon></th>
+        <td mat-cell *matCellDef="let row">{{row.humidity || 0}}&#37;</td>
       </ng-container>
 
       <ng-container matColumnDef="temperature">
-        <th mat-header-cell *matHeaderCellDef>Temperature</th>
-        <td mat-cell *matCellDef="let row">{{row.temperature}}</td>
+        <th mat-header-cell *matHeaderCellDef><mat-icon>ac_unit</mat-icon></th>
+        <td mat-cell *matCellDef="let row">{{row.temperature || 0}}&deg;</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>

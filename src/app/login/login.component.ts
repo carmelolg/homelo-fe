@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.queryParams.subscribe(params => {
-      if (params.expired === "true") {
+      if (params.expired === 'true') {
         this.message = 'Your access token is expired!';
       }
     });

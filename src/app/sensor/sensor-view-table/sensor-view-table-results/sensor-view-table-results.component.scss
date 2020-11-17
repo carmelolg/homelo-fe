@@ -15,8 +15,15 @@ table {
   width: 100%;
 }
 
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .loading-shade {
-  position: absolute;
+  // position: absolute;
   top: 0;
   left: 0;
   bottom: 56px;
@@ -32,9 +39,64 @@ table {
 /* Column Widths */
 .mat-column-number,
 .mat-column-state {
-  max-width: 64px;
+  max-width: 5px;
 }
 
 .mat-column-created {
   max-width: 124px;
+}
+
+.mat-column-room {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  width: 30% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-date {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  // width: 30% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: center;
+}
+
+
+.mat-column-humidity {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  // width: 15% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+
+.mat-column-temperature {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  // width: 15% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
