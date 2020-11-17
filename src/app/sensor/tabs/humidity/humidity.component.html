@@ -5,3 +5,12 @@
       [colors]="chartColors" [chartType]="item.chartType"></canvas>
   </mat-card-content>
 </mat-card>
+
+<mat-card *ngIf="humiditySensorDataList.length == 0">
+  <mat-card-content>
+    <mat-card-title>Whoops! <mat-icon>flash_off</mat-icon></mat-card-title>
+    <mat-divider></mat-divider>
+    <br>
+    No data since yesterday! Are you still paying the electricity company?
+  </mat-card-content>
+</mat-card>

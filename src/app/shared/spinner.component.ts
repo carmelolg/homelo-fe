@@ -1,3 +1,5 @@
+import { Subscription } from 'rxjs';
+import { LoadingService } from './../loading.service';
 import {
   Component,
   Input,
@@ -26,11 +28,12 @@ import { DOCUMENT } from '@angular/common';
 })
 export class SpinnerComponent implements OnDestroy {
   public isSpinnerVisible = true;
+  loadingSubs: Subscription;
 
   @Input()
   public backgroundColor = 'rgba(0, 115, 170, 0.69)';
-
   constructor(
+    private loadingService: LoadingService,
     private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) {
@@ -50,9 +53,14 @@ export class SpinnerComponent implements OnDestroy {
         this.isSpinnerVisible = false;
       }
     );
+
+    this.loadingSubs = this.loadingService.isLoading$.subscribe(isLoading => {
+      this.isSpinnerVisible = isLoading;
+    });
   }
 
   ngOnDestroy(): void {
     this.isSpinnerVisible = false;
+    this.loadingSubs.unsubscribe();
   }
 }
