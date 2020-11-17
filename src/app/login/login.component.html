@@ -1,5 +1,6 @@
 <mat-card>
   <mat-card-content>
+    {{message}}
     <form [formGroup]="form" (ngSubmit)="login()">
       <h2>Log In</h2>
       <mat-error *ngIf="loginInvalid">

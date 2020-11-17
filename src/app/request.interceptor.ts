@@ -1,9 +1,9 @@
-import { LoadingService } from './loading.service';
-import { Router } from '@angular/router';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
+import { LoadingService } from './loading.service';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
@@ -28,7 +28,7 @@ export class RequestInterceptor implements HttpInterceptor {
             return;
           }
           localStorage.removeItem('jwt');
-          this.router.navigate(['login']);
+          this.router.navigate(['login'], {queryParams: {expired: true}});
         }
       }));
   }
