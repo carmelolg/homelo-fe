@@ -1,6 +1,6 @@
 .header {
-  padding-left: 16px;
-
+  padding-left: 1px;
+  text-align: center;
   &__link {
     display: inline;
     flex-flow: row nowrap;
@@ -17,12 +17,13 @@
     &::after {
       content: "";
       display: inline-block;
-      background-image: url("../assets/styles/logo/logo.svg") !important;
+      background-image: url("../assets/styles/logo/banner-logo.png") !important;
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
       height: 60px;
       width: 240px;
+      margin-top: 10px;
     }
 
     &:hover {
@@ -33,5 +34,5 @@
 
 .user {
   float: right;
-  margin-top: 18px;
+  margin-top: 28px;
 }
