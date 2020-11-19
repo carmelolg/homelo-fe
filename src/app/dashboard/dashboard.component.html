@@ -4,12 +4,13 @@
       <mat-card-content>
         <div class="d-flex flex-wrap">
           <div>
-            <mat-card-title>Homelo</mat-card-title>
+            <mat-card-title>{{homeInfo.name}}</mat-card-title>
             <mat-card-subtitle>Sensors and healty home management</mat-card-subtitle>
           </div>
         </div>
         <mat-divider></mat-divider><br>
         {{homeInfo.address}}, {{homeInfo.city}}
+        <br> Floor: {{homeInfo.floor || 'Not available'}} Flat: {{homeInfo.flat || 'Not available'}}
       </mat-card-content>
     </mat-card>
   </div>

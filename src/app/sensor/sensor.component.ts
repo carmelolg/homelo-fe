@@ -1,3 +1,4 @@
+import { SensorService } from './sensor.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -8,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export default class SensorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sensorService: SensorService) { }
+
   ngOnInit() {
   }
-
 }
