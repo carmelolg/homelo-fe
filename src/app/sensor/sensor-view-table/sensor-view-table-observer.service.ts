@@ -27,7 +27,7 @@ export class SensorViewTableObserverService {
 
     this.filters.next(filters);
     this.searchActive.next(true);
-    const url: string = this.baseUrl + 'sensor';
+    const url: string = this.baseUrl + 'detection';
 
     let subs = this.http.get(url, {params: filters.toParams()}).subscribe(results => {
       this.results.next(results as FullSensorData[]);
