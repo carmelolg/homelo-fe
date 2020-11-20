@@ -40,7 +40,7 @@ export class HumidityComponent implements OnInit {
 
         // Prepare lables on x-axis
         let _chartLabels: Label[] = [];
-        _chartLabels = values.map(el => this.datePipe.transform(el.date['$date'], 'hh:mm'));
+        _chartLabels = values.map(el => this.datePipe.transform(el.date['$date'], 'HH:mm'));
 
         // Create final object
         this.humiditySensorDataList.push(new SensorData(key, data[key] as SensorDataDetail[], _chartValues, _chartLabels));
