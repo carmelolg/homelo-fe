@@ -1,14 +1,14 @@
 
-<div [hidden]="!searchIsActive || results.length">
+<div [hidden]="!searchIsActive || results.data.length">
   Whoops! No data found
 </div>
-<div [hidden]="!results.length" class="custom-container mat-elevation-z8">
+<div [hidden]="!results.data.length" class="custom-container mat-elevation-z8">
 
   <div class="loading-shade">
     <!-- <mat-spinner *ngIf="!results.length"></mat-spinner> -->
   </div>
   <div class="table-container">
-    <table mat-table [dataSource]="results" class="custom-table" matSort matSortActive="created" matSortDisableClear
+    <table mat-table [dataSource]="results.data" class="custom-table" matSort matSortActive="created" matSortDisableClear
       matSortDirection="desc">
 
       <ng-container matColumnDef="room">
@@ -36,5 +36,5 @@
     </table>
   </div>
 
-  <mat-paginator [length]="results.length" [pageSize]="24"></mat-paginator>
+  <mat-paginator [length]="results.total" [pageSize]="24"></mat-paginator>
 </div>

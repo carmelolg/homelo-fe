@@ -15,7 +15,7 @@ export class SensorViewTableResultsComponent implements OnInit, OnDestroy {
 
   isLoading = false;
   searchIsActive = false;
-  results: FullSensorData[] = [];
+  results: FullSensorData;
   filters: TableFilters = new TableFilters();
   columns: string[] = ['room', 'date', 'humidity', 'temperature'];
 
@@ -26,7 +26,9 @@ export class SensorViewTableResultsComponent implements OnInit, OnDestroy {
   private filtersSubscription: Subscription;
   private searchActiveSubscription: Subscription;
 
-  constructor(private tableObservable: SensorViewTableObserverService) { }
+  constructor(private tableObservable: SensorViewTableObserverService) {
+    this.results = new FullSensorData();
+  }
 
   ngOnInit(): void {
     this.filtersSubscription = this.tableObservable.filters$.subscribe(filters => this.filters = filters);

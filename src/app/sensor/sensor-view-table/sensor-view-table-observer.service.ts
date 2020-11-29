@@ -10,7 +10,7 @@ import { TableFilters } from './sensor-view-table-filters/TableFilters';
 })
 export class SensorViewTableObserverService {
 
-  private results: Subject<FullSensorData[]> = new Subject();
+  private results: Subject<FullSensorData> = new Subject();
   public results$ = this.results.asObservable();
 
   private filters: Subject<TableFilters> = new Subject();
@@ -30,7 +30,7 @@ export class SensorViewTableObserverService {
     const url: string = this.baseUrl + 'detection';
 
     let subs = this.http.get(url, {params: filters.toParams()}).subscribe(results => {
-      this.results.next(results as FullSensorData[]);
+      this.results.next(results as FullSensorData);
       subs.unsubscribe();
     });
 
@@ -39,7 +39,7 @@ export class SensorViewTableObserverService {
 
   reset(): void{
     this.searchActive.next(false);
-    this.results.next([]);
+    this.results.next(new FullSensorData());
     this.filters.next(new TableFilters());
   }
 }
