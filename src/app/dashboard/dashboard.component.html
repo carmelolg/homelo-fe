@@ -27,17 +27,26 @@
           </div>
         </div>
 
-        <mat-grid-list cols="2" class="all-width" rowHeight="fit">
-          <mat-grid-tile [colspan]="1" [rowspan]="1">
-            <circle-progress [percent]="roomParam.humidity" [radius]="50" [outerStrokeWidth]="10"
-              [innerStrokeWidth]="2" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-              [animationDuration]="300" [subtitle]="'Humidity'" [outerStrokeLinecap]="'square'">
+        <mat-grid-list cols="3" class="all-width" rowHeight="fit">
+
+          <mat-grid-tile>
+            <circle-progress [percent]="roomParam.temperature" [radius]="45" [outerStrokeWidth]="5" [innerStrokeWidth]="2"
+              [innerStrokeColor]="'#ff9933'"  [outerStrokeColor]="'#ff6600'" [animation]="true" [animationDuration]="300" [units]="' °C'"
+              [subtitle]="'Temperature'" [outerStrokeLinecap]="'round'" [toFixed]="1">
             </circle-progress>
           </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <circle-progress [percent]="roomParam.humidity" [radius]="45" [outerStrokeWidth]="5"
+              [innerStrokeWidth]="2" [innerStrokeColor]="'#99d6ff'" [outerStrokeColor]="'#1e88e5'" [animation]="true"
+              [animationDuration]="300" [subtitle]="'Humidity'" [outerStrokeLinecap]="'round'">
+            </circle-progress>
+          </mat-grid-tile>
+
           <mat-grid-tile>
-            <circle-progress [percent]="roomParam.temperature" [radius]="50" [outerStrokeWidth]="10" [innerStrokeWidth]="2"
-              [outerStrokeColor]="'#78C000'" [animation]="true" [animationDuration]="300" [units]="' degrees'"
-              [subtitle]="'Temperature'" [outerStrokeLinecap]="'square'">
+            <circle-progress [percent]="roomParam.heatIndex" [radius]="45" [outerStrokeWidth]="5" [innerStrokeWidth]="2"
+            [innerStrokeColor]="'#ff9933'"  [outerStrokeColor]="'#ff6600'" [animation]="true" [animationDuration]="300" [units]="' °C'"
+              [subtitle]="'Heat Index'" [outerStrokeLinecap]="'round'" [toFixed]="1">
             </circle-progress>
           </mat-grid-tile>
         </mat-grid-list>

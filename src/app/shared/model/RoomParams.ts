@@ -10,6 +10,7 @@ export class RoomParam {
   constructor(
     public temperature?: number,
     public humidity?: number,
+    public heatIndex?: number,
     public date?: Date,
     public room?: string
     ) { }
