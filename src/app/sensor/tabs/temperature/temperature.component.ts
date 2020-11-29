@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { BaseChartDirective, Color, Label } from 'ng2-charts';
 import { ChartValue } from '../../../shared/model/ChartValue';
 import { SensorData } from '../../../shared/model/SensorData';
@@ -36,7 +36,8 @@ export class TemperatureComponent implements OnInit {
 
         // Prepare chart values
         let _chartValues: Array<ChartValue> = [];
-        _chartValues.push(new ChartValue(values.map(el => el.value), key));
+        _chartValues.push(new ChartValue(values.map(el => el.temperature), 'Temperature'));
+        _chartValues.push(new ChartValue(values.map(el => el.heatIndex), 'Heat Index'));
 
         // Prepare lables on x-axis
         let _chartLabels: Label[] = [];

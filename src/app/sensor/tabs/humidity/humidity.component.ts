@@ -36,7 +36,7 @@ export class HumidityComponent implements OnInit {
 
         // Prepare chart values
         let _chartValues: Array<ChartValue> = [];
-        _chartValues.push(new ChartValue(values.map(el => el.value), key));
+        _chartValues.push(new ChartValue(values.map(el => el.humidity), 'Humidity'));
 
         // Prepare lables on x-axis
         let _chartLabels: Label[] = [];

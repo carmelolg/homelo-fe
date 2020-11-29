@@ -1,7 +1,9 @@
 export class SensorDataDetail {
 
   constructor(
-    public value: number,
-    public date: Date
+    public humidity?: number,
+    public temperature?: number,
+    public heatIndex?: number,
+    public date?: Date
   ){}
 }
