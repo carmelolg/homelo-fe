@@ -18,6 +18,10 @@ export const AppRoutes: Routes = [
       {
         path: 'sensor',
         loadChildren: () => import('./sensor/sensor.module').then(m => m.SensorModule)
+      },
+      {
+        path: 'device',
+        loadChildren: () => import('./device/device.module').then(m => m.DeviceModule)
       }
     ]
   },

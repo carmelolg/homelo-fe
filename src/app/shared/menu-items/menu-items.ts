@@ -9,7 +9,8 @@ export interface Menu {
 
 const MENUITEMS = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'dashboard' },
-  { state: 'sensor', name: 'Sensors', type: 'link', icon: 'memory' }
+  { state: 'sensor', name: 'Parameters', type: 'link', icon: 'analytics' },
+  { state: 'device', name: 'Devices', type: 'link', icon: 'memory' }
 ];
 
 @Injectable()

@@ -1,9 +1,8 @@
-import { SensorFilterService } from './sensor-view-table-filters.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { environment } from './../../../../environments/environment';
 import { HomeInfo } from './../../../shared/model/HomeInfo';
 import { SensorViewTableObserverService } from './../sensor-view-table-observer.service';
+import { SensorFilterService } from './sensor-view-table-filters.service';
 import { TableFilters } from './TableFilters';
 
 @Component({

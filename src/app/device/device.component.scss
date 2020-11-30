@@ -1,0 +1,21 @@
+@import '~assets/styles/variable';
+
+.all-width {
+  height: auto;
+  min-height: 250px;
+  max-height: 400px;
+}
+
+.border {
+  border-style: ridge;
+  border-radius: 5px;
+  border-width: 2px;
+  padding: 25px;
+}
+.border-green {
+  border-color: $themecolor;
+}
+
+.border-red {
+  border-color: $danger;
+}
