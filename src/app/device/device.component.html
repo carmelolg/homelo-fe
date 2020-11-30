@@ -20,10 +20,36 @@
         <div class="d-flex flex-wrap">
           <div>
             <mat-card-title>{{device.name}}</mat-card-title>
-            <mat-card-subtitle>{{device.room}}</mat-card-subtitle>
+            <mat-card-subtitle>This device is currently <span *ngIf="!device.alive">not</span> alive.</mat-card-subtitle>
           </div>
         </div>
-        <button mat-raised-button (click)="openDialog(device)">Update</button>
+
+        <div fxLayout="row wrap">
+          <div fxFlex.gt-lg="48" fxFlex.gt-md="48" fxFlex.gt-xs="48" fxFlex="48">
+            <span class="mat-body-strong">Available sensors</span>
+            <br>
+            <mat-icon *ngIf="device.humidity">water_damage</mat-icon>
+            <mat-icon *ngIf="device.temperature">ac_unit</mat-icon>
+            <mat-icon *ngIf="device.gas">local_fire_department</mat-icon>
+            <mat-icon *ngIf="device.motion">mood</mat-icon>
+            <mat-icon *ngIf="device.camera">videocam</mat-icon>
+          </div>
+
+          <div fxFlex.gt-lg="50" fxFlex.gt-md="50" fxFlex.gt-xs="50" fxFlex="50">
+            <span class="mat-body-strong">Room</span>
+            <br>
+            <span class="mat-body">{{device.room}}</span>
+          </div>
+        </div>
+
+
+        <div fxLayout="row wrap">
+          <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+            <div class="float-right">
+              <button mat-raised-button (click)="openDialog(device)">Update</button>
+            </div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
