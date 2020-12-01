@@ -22,6 +22,10 @@ export const AppRoutes: Routes = [
       {
         path: 'device',
         loadChildren: () => import('./device/device.module').then(m => m.DeviceModule)
+      },
+      {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
       }
     ]
   },

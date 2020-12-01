@@ -33,7 +33,8 @@ export class AuthService {
         this.disableAuth();
         localStorage.removeItem('jwt');
         localStorage.removeItem('user');
-        this.router.navigate(['login']);
+        localStorage.removeItem('roles');
+        window.location.reload();
       });
   }
 }

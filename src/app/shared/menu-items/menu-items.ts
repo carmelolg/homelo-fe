@@ -16,6 +16,14 @@ const MENUITEMS = [
 @Injectable()
 export class MenuItems {
   getMenuitem(): Menu[] {
+
+    if (!MENUITEMS.filter(item => item.state === 'admin').length) {
+      const roles = localStorage.getItem('roles');
+      if (roles === 'admin' || roles.indexOf('admin') > -1) {
+        MENUITEMS.push({ state: 'admin', name: 'Admin panel', type: 'link', icon: 'admin_panel_settings' });
+      }
+    }
+
     return MENUITEMS;
   }
 }

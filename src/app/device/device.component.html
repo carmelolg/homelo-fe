@@ -13,6 +13,23 @@
   </div>
 </div>
 
+<span [hidden]="devices.length > 0">
+  <div fxLayout="row wrap">
+    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+      <mat-card>
+        <mat-card-content>
+          <div class="d-flex flex-wrap">
+            <div>
+              <mat-card-title>No active devices here</mat-card-title>
+              <mat-card-subtitle>Are you waiting some devices yet?</mat-card-subtitle>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</span>
+
 <div fxLayout="row wrap" *ngFor="let device of devices">
   <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
     <mat-card [ngClass]="{'border': true, 'border-green': device.alive, 'border-red': !device.alive}">
@@ -20,7 +37,8 @@
         <div class="d-flex flex-wrap">
           <div>
             <mat-card-title>{{device.name}}</mat-card-title>
-            <mat-card-subtitle>This device is currently <span *ngIf="!device.alive">not</span> alive.</mat-card-subtitle>
+            <mat-card-subtitle>This device is currently <span *ngIf="!device.alive">not</span> alive.
+            </mat-card-subtitle>
           </div>
         </div>
 

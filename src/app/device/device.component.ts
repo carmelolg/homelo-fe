@@ -33,7 +33,7 @@ export class DeviceComponent implements OnInit {
 
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '250px',
-      data: {device: device}
+      data: {device}
     });
 
     dialogRef.afterClosed().subscribe(result => {

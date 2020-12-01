@@ -51,6 +51,16 @@ export class LoginComponent implements OnInit {
         this.authService.enableAuth();
         localStorage.setItem('user', username);
         localStorage.setItem('jwt', result.jwt);
+
+        const jwtData = result.jwt.split('.')[1];
+        const decodedJwtJsonData = window.atob(jwtData);
+        const decodedJwtData = JSON.parse(decodedJwtJsonData);
+
+
+        const roles = decodedJwtData.roles;
+        localStorage.setItem('roles', roles);
+
+
         this.router.navigate(['dashboard']);
       }, (error) => this.loginInvalid = true
       );
