@@ -17,7 +17,7 @@ export class SensorViewTableResultsComponent implements OnInit, OnDestroy {
   searchIsActive = false;
   results: FullSensorData;
   filters: TableFilters = new TableFilters();
-  columns: string[] = ['room', 'date', 'humidity', 'temperature'];
+  columns: string[] = ['room', 'date', 'humidity', 'temperature', 'gas'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

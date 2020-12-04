@@ -11,6 +11,7 @@ export class RoomParam {
     public temperature?: number,
     public humidity?: number,
     public heatIndex?: number,
+    public gas?: number,
     public date?: Date,
     public room?: string
     ) { }

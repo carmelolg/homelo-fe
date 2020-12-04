@@ -46,10 +46,17 @@ table {
   max-width: 124px;
 }
 
-.mat-column-room {
+td.mat-cell {
+  /* row padding */
+  padding: 16px 0;
+  /* row border */
+  border: 1px solid #f2f4f8;
+ }
+
+ .mat-column-room {
   word-wrap: break-word !important;
   white-space: unset !important;
-  width: 30% !important;
+  width: 20% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -62,7 +69,7 @@ table {
 .mat-column-date {
   word-wrap: break-word !important;
   white-space: unset !important;
-  // width: 30% !important;
+  //width: 35% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -70,14 +77,14 @@ table {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
-  //text-align: center;
+  text-align: center;
 }
 
 
 .mat-column-humidity {
   word-wrap: break-word !important;
   white-space: unset !important;
-  // width: 15% !important;
+  //width: 5% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -85,13 +92,14 @@ table {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+  text-align: center;
 }
 
 
 .mat-column-temperature {
   word-wrap: break-word !important;
   white-space: unset !important;
-  // width: 15% !important;
+  //width: 5% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -99,4 +107,20 @@ table {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+  text-align: center;
 }
+
+.mat-column-gas {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  //width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: center;
+}
+

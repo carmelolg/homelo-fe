@@ -4,6 +4,7 @@ export class SensorDataDetail {
     public humidity?: number,
     public temperature?: number,
     public heatIndex?: number,
+    public gas?: number,
     public date?: Date
   ){}
 }

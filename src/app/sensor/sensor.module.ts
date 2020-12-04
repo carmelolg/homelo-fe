@@ -1,3 +1,4 @@
+import { GasComponent } from './tabs/gas/gas.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -27,6 +28,6 @@ import { TemperatureComponent } from './tabs/temperature/temperature.component';
     RouterModule.forChild(SensorRoutes)
   ],
   providers: [DatePipe, CdkColumnDef],
-  declarations: [SensorComponent, SensorViewTableComponent, SensorViewTableFiltersComponent, SensorViewTableResultsComponent, HumidityComponent, TemperatureComponent]
+  declarations: [SensorComponent, SensorViewTableComponent, SensorViewTableFiltersComponent, SensorViewTableResultsComponent, HumidityComponent, GasComponent, TemperatureComponent]
 })
 export class SensorModule { }
