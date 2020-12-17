@@ -18,11 +18,11 @@ export class UserService {
 
   removeUser(user) {
     const url = this.baseUrl + 'user';
-    return this.http.delete(url, {params: {user}});
+    return this.http.delete(url, { params: { user } });
   }
 
   saveUser(user) {
     const url = this.baseUrl + 'user';
-    return this.http.post<string>(url, user);
+    return this.http.post<string>(url, user, { responseType: 'text' as 'json' });
   }
 }

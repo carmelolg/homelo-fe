@@ -71,12 +71,6 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  openSnackBar(message: string) {
-    this._snackBar.open(message, 'ok', {
-      duration: 2000,
-    });
-  }
-
   reset() {
     this.house = new FormControl();
     this.username = new FormControl();

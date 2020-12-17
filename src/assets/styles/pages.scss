@@ -6,8 +6,8 @@ File: scss
 */
 
 
-/*============================================================== 
- For all pages 
+/*==============================================================
+ For all pages
  ============================================================== */
 
 
@@ -24,11 +24,11 @@ File: scss
 	bottom: 0;
 	left: 0;
 	right: 0;
-} 
+}
 
 .mat-drawer-container{
 		background: $bodycolor;
-		
+
 }
 
 html .page-wrapper{
@@ -87,7 +87,7 @@ Chartistt chart css
 		border-radius: 100%;
 			}
  }
-}        
+}
 
 .button-row button{
 	margin-bottom: 5px;
@@ -99,4 +99,12 @@ Chartistt chart css
 }
 .pr-5 {
 	padding-right: 5px;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #2f3d4a;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: rgba(47, 61, 74, 0.54);
 }

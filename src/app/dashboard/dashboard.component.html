@@ -16,6 +16,23 @@
   </div>
 </div>
 
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Enable alarms</mat-card-title>
+            <mat-card-subtitle>If you're leaving your home it's recommended enable alarms</mat-card-subtitle>
+          </div>
+        </div>
+        Slide here: <mat-slide-toggle  [checked]="isAlarmActive === true ? true : false" (change)="updateAlarm(homeInfo.code, $event)"></mat-slide-toggle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
 <div [hidden]="!roomParams.data.length" fxLayout="row wrap">
   <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
     <mat-card *ngFor="let roomParam of roomParams.data">

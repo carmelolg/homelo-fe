@@ -19,7 +19,7 @@ export class DeviceService {
   saveDevices(data) {
 
     const url = this.baseUrl + 'sensor';
-    return this.http.post<string>(url, data).subscribe(result => {});
+    return this.http.post<string>(url, data, {responseType: 'text' as 'json'}).subscribe(result => {});
   }
 
   getHomeInfo() {

@@ -21,4 +21,14 @@ export class DashboardService {
     return this.http.get(url);
   }
 
+  updateAlarm(house: string, enable: boolean) {
+    const url = this.baseUrl + 'alarm';
+    return this.http.post<string>(url, {}, { params: { house, enable: enable.toString() }, responseType: 'text' as 'json' });
+  }
+
+  isAlarmActive(house: string) {
+    const url = this.baseUrl + 'alarm';
+    return this.http.get(url, { params: { house } });
+  }
+
 }
