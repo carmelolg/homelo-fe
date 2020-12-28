@@ -13,6 +13,8 @@ export class RoomParam {
     public heatIndex?: number,
     public gas?: number,
     public date?: Date,
-    public room?: string
+    public room?: string,
+    public movement?: boolean,
+    public lastPassage?: Date
     ) { }
 }

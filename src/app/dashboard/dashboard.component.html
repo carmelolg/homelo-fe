@@ -44,10 +44,10 @@
           </div>
         </div>
 
-        <mat-grid-list cols="2" class="all-width" rowHeight="fit">
+        <mat-grid-list cols="2" class="all-width" rowHeight="150px">
 
           <mat-grid-tile *ngIf="roomParam.gas">
-            <mat-grid-tile-header *ngIf="roomParam.gas > 1000">
+            <mat-grid-tile-header *ngIf="roomParam.gas > 1000" [style.backgroundColor]="'#232a37'">
               Smoke detected
             </mat-grid-tile-header>
             <circle-progress  [maxPercent]=4000 [percent]="roomParam.gas" [radius]="45" [outerStrokeWidth]="5" [innerStrokeWidth]="2"
@@ -76,6 +76,15 @@
               [subtitle]="'Heat Index'" [outerStrokeLinecap]="'round'" [toFixed]="1">
             </circle-progress>
           </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]=2 *ngIf="roomParam.movement">
+            <mat-grid-tile-header *ngIf="roomParam.movement" [style.backgroundColor]="'#232a37'">
+              Last movement detected
+            </mat-grid-tile-header>
+              <b>{{roomParam.lastPassage['$date'] | date: 'MMM d, y, HH:mm:ss'}}</b>
+          </mat-grid-tile>
+
         </mat-grid-list>
 
       </mat-card-content>
