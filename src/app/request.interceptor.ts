@@ -28,6 +28,7 @@ export class RequestInterceptor implements HttpInterceptor {
             return;
           }
           localStorage.removeItem('jwt');
+          localStorage.removeItem('roles');
           this.router.navigate(['login'], {queryParams: {expired: true}});
         }
       }));
