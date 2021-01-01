@@ -44,10 +44,10 @@
           </div>
         </div>
 
-        <mat-grid-list cols="2" class="all-width" rowHeight="150px">
+        <mat-grid-list cols="2" class="all-width" rowHeight="220px">
 
           <mat-grid-tile *ngIf="roomParam.gas">
-            <mat-grid-tile-header *ngIf="roomParam.gas > 1000" [style.backgroundColor]="'#232a37'">
+            <mat-grid-tile-header *ngIf="roomParam.gas > 1500" [style.backgroundColor]="'#232a37'">
               Smoke detected
             </mat-grid-tile-header>
             <circle-progress  [maxPercent]=4000 [percent]="roomParam.gas" [radius]="45" [outerStrokeWidth]="5" [innerStrokeWidth]="2"
